@@ -1,0 +1,10 @@
+POST http://localhost:3001/app/addartist
+Content-Type: application/json
+
+{
+    "artistName": "Rashad",
+    "favSong": "shad",
+    "userNote": "king1234",
+    "favImage": "king1234"
+}
+
