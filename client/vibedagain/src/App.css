@@ -4,12 +4,17 @@
   justify-content: center;
   text-align: center;
 }
+.maincontainer {
+  display:flex;
+  flex-direction: row;
+}
 
 .userinputs {
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  padding: 1%;
   border: 1px solid black;
   height: 50vh;
   width:40vw;
@@ -18,15 +23,53 @@
 .displaydata {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   text-align: center;
+  padding: 1%;
   overflow: scroll;
   border: 1px solid black;
   height: 50vh;
   width: 70vw;
 }
 
-.maincontainer {
-  display:flex;
+.dbData {
+  display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
+  text-align: center;
+}
+
+img.artistImg {
+  height: 30vh;
+  width: 30vw;
+  padding: 10px;
+}
+
+label.dDataLabeldb {
+  color: blue;
+  padding: 10px;
+  margin: 10px;
+  font-size:3vh;
+}
+
+label.dDataLabaledit {
+  color: blue;
+  margin: 10px;
+  padding: 10px;
+}
+
+.editInput {
+  width: 10vw;
+  margin: 5px;
+}
+.editInputcomment {
+  width: 55vw;
+  height:100px;
+  margin: 10px;
+}
+.updateButton {
+  color: blue;
+}
+
+.deleteButton {
+  color: red;
 }

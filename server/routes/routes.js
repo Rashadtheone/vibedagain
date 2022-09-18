@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express()
 const ArtistModel = require('../models/userdata')
+const SpotifyWebApi = require('spotify-web-api-node')
 
 // artistName: artistName, favSong: favSong, userNote: userNote,favImage: favImage
 
@@ -64,5 +65,35 @@ router.delete("/delete/:id", async (req, res) => {
     res.send(id)
 })
 
+// spotify routes
+
+router.post("/login", async (req, res) => {
+    const code = req.body.code
+
+
+    const spotifyApi = new SpotifyWebApi({
+        redirectUri: 'http://localhost:3000/app',
+        clientId: 'f94ee5b50ba246238a83b82cf28fddb5',
+        clientSecret: '86097337f93e4bee874243a33760fa8d',
+
+    })
+
+    spotifyApi
+    .authorizationCodeGrant(code)
+    .then(data => {
+        res.json({
+            accessToken: data.body.access_token,
+            refreshToken: data.body.refresh_token,
+            expiresin: data.body.expires_in,
+        })
+    }) 
+    try {
+        await SpotifyWebApi.save()
+       }
+       catch (err) {
+        console.log(err)
+       }
+    
+})
 
 module.exports = router
